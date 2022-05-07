@@ -1,4 +1,8 @@
 <?php
+$sidebar_home = [
+    'title' => 'Dasbor',
+    'href' => base_url(),
+];
 $sidebar = [
     [
         'title' => 'Pembukuan',
@@ -39,7 +43,7 @@ $sidebar = [
         ]
     ],
     [
-        'title' => 'Pembukuan',
+        'title' => 'Interface',
         'children' => [
             [
                 'title' => 'Components',
@@ -164,10 +168,10 @@ $sidebar = [
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item <?= $page == $sidebar_home['title'] ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= $sidebar_home['href'] ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span><?= $sidebar_home['title'] ?></span></a>
         </li>
 
         <!-- Divider -->
@@ -182,19 +186,19 @@ $sidebar = [
             <?php if (isset($s['children'])) : ?>
                 <?php foreach ($s['children'] as $sc) : ?>
                     <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
+                    <li class="nav-item <?= $page == $sc['title'] ? 'active' : '' ?>">
                         <?php if (isset($sc['children'])) : ?>
                             <a class="nav-link collapsed" href="<?= $sc['href'] ?>" data-toggle="collapse" data-target="#collapse<?= trim($sc['title'], ' ') ?>" aria-expanded="true" aria-controls="collapse<?= trim($sc['title'], ' ') ?>">
                                 <i class="<?= $sc['icon'] ?>"></i>
                                 <span><?= $sc['title'] ?></span>
                             </a>
-                            <div id="collapse<?= trim($sc['title'], ' ') ?>" class="collapse" aria-labelledby="heading<?= trim($sc['title'], ' ') ?>" data-parent="#accordionSidebar">
+                            <div id="collapse<?= trim($sc['title'], ' ') ?>" class="collapse <?= $page == $sc['title'] ? 'show' : '' ?>" aria-labelledby="heading<?= trim($sc['title'], ' ') ?>" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded">
                                     <?php foreach ($sc['children'] as $key_scc => $scc) : ?>
                                         <h6 class="collapse-header"><?= $scc['title'] ?></h6>
                                         <?php if (isset($scc['children'])) : ?>
                                             <?php foreach ($scc['children'] as $sccc) : ?>
-                                                <a class="collapse-item" href="<?= $sccc['href'] ?>"><?= $sccc['title'] ?></a>
+                                                <a class="collapse-item <?= $subpage == $sccc['title'] ? 'active' : '' ?>" href="<?= $sccc['href'] ?>"><?= $sccc['title'] ?></a>
                                             <?php endforeach ?>
                                         <?php endif ?>
 

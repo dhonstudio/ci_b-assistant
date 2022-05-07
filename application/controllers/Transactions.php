@@ -22,7 +22,9 @@ class Transactions extends CI_Controller
                 'author'        => 'Dhon Studio',
                 'description'   => 'Business Assistant.',
             ],
-            'title'         => 'Dhon Studio Business Assistant',
+            'title'         => 'Kas dan Bank B-Assist',
+            'page'          => 'Kas dan Bank',
+            'subpage'       => '',
             'font'          => [
                 $this->font['google-Nunito']
             ],

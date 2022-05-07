@@ -27,7 +27,9 @@ class Home extends CI_Controller
                 'author'        => 'Dhon Studio',
                 'description'   => 'Business Assistant.',
             ],
-            'title'         => 'Dhon Studio Business Assistant',
+            'title'         => 'Dasbor B-Assist',
+            'page'          => 'Dasbor',
+            'subpage'       => '',
             'font'          => [
                 $this->font['google-Nunito']
             ],
